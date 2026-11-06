@@ -94,7 +94,7 @@ A **confidence-gated hybrid** (`HybridMissionParser`) uses the rule parser as th
 
 **Map-aware grounding** resolves relative descriptions such as the northernmost landmark or a location nearest an anchor against the landmarks extracted by CV. When the chosen goal type does not exist on the predicted map, the parser falls back to the neural reading, then to the most probable neural goal type that is present.
 
-Synthetic Vietnamese examples, real annotated training scenes, held-out phrasing, and multiple model seeds were used to develop and evaluate NLP variants. The repository contains the generators and training scripts; several final NLP checkpoints are distributed via [GitHub Releases](https://github.com/AnDpTri/Top6-Phenikaa-AI-Hackathon-2026/releases/tag/v1.0.0).
+Synthetic Vietnamese examples, real annotated training scenes, held-out phrasing, and multiple model seeds were used to develop and evaluate NLP variants. The repository contains the generators and training scripts; several final NLP checkpoints are distributed via [GitHub Releases](https://github.com/AnDpTri/phenikaa-ai-hackathon-2026/releases/tag/v1.0.0).
 
 A particularly consequential experiment compared the same V5 model with neural `via` overrides disabled versus enabled (`via` confidence threshold `0.95`). The recorded leaderboard scores changed from **65.28% to 70.39%**, with **1,148 of 12,000 output actions** changing. This is a configuration comparison, not proof that every individual neural correction was right.
 
@@ -202,8 +202,8 @@ The **original competition dataset is not bundled** in this repository. Some tes
 The commands below use **PowerShell** to match the project's development environment.
 
 ```powershell
-git clone https://github.com/AnDpTri/Top6-Phenikaa-AI-Hackathon-2026.git
-cd Top6-Phenikaa-AI-Hackathon-2026
+git clone https://github.com/AnDpTri/phenikaa-ai-hackathon-2026.git
+cd phenikaa-ai-hackathon-2026
 py -3.12 -m pip install -e ".[solver,cv]"
 $env:PYTHONPATH = "src"
 ```
@@ -215,7 +215,7 @@ The CV checkpoint and `candidate_strategy_trainval.joblib` are tracked in the so
 ```powershell
 New-Item -ItemType Directory -Force artifacts/nlp | Out-Null
 gh release download v1.0.0 `
-  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/phenikaa-ai-hackathon-2026 `
   --pattern "neural_parser_v5_sf200_scratch_via095.pt" `
   --dir artifacts/nlp
 ```
@@ -256,11 +256,11 @@ Both use the Ultra solver artifact from the release. Download it and the V5+V9 N
 
 ```powershell
 gh release download v1.0.0 `
-  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/phenikaa-ai-hackathon-2026 `
   --pattern "candidate_strategy_ultra.joblib" `
   --dir artifacts/solver
 gh release download v1.0.0 `
-  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/phenikaa-ai-hackathon-2026 `
   --pattern "neural_parser_v5_v9_ensemble_g070_v095.pt" `
   --dir artifacts/nlp
 ```

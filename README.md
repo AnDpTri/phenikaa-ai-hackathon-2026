@@ -2,14 +2,9 @@
 
 **A multimodal, graph-based AI system built under a ~48-hour hackathon deadline.**
 
-[![Result](https://img.shields.io/badge/Result-Top%2013%20%2F%2025-24292f?style=flat-square)](https://github.com/AnDpTri/Top13-Phenikaa-AI-Hackathon-2026)
-[![Peak leaderboard score](https://img.shields.io/badge/Peak%20score-71.17%25-216e39?style=flat-square)](https://github.com/AnDpTri/Top13-Phenikaa-AI-Hackathon-2026)
-[![Challenge](https://img.shields.io/badge/Challenge-COURIER2-0969da?style=flat-square)](https://aihackathon.phenikaa-uni.edu.vn/)
-[![Python](https://img.shields.io/badge/Python-3.12-3776ab?style=flat-square)](https://www.python.org/)
-
 **Team:** Devil May Cry (DMC)  
 **Challenge:** Phenikaa Campus Courier 2026 — private-test round (`COURIER2`, new dataset)  
-**Reported result:** Top 13 out of 25 teams; **71.17% peak leaderboard macro accuracy**  
+**Result:** Top 6 of 25 teams in the official qualifying ranking, which advanced the team to the final round. Peak macro accuracy on the in-contest leaderboard: **71.17%**.  
 **Development window:** October 8–10, 2026 (~48 hours)
 
 > **Project context.** This repository documents a hackathon solution developed from an empty project under severe time constraints. One developer coordinated the architecture, experiments, integration, validation, and submissions, with AI coding agents assisting in implementation and research. The result is a working experimental pipeline, **not a production-certified robotics system**.
@@ -99,7 +94,7 @@ A **confidence-gated hybrid** (`HybridMissionParser`) uses the rule parser as th
 
 **Map-aware grounding** resolves relative descriptions such as the northernmost landmark or a location nearest an anchor against the landmarks extracted by CV. When the chosen goal type does not exist on the predicted map, the parser falls back to the neural reading, then to the most probable neural goal type that is present.
 
-Synthetic Vietnamese examples, real annotated training scenes, held-out phrasing, and multiple model seeds were used to develop and evaluate NLP variants. The repository contains the generators and training scripts; several final NLP checkpoints are distributed via [GitHub Releases](https://github.com/AnDpTri/Top13-Phenikaa-AI-Hackathon-2026/releases/tag/v1.0.0).
+Synthetic Vietnamese examples, real annotated training scenes, held-out phrasing, and multiple model seeds were used to develop and evaluate NLP variants. The repository contains the generators and training scripts; several final NLP checkpoints are distributed via [GitHub Releases](https://github.com/AnDpTri/Top6-Phenikaa-AI-Hackathon-2026/releases/tag/v1.0.0).
 
 A particularly consequential experiment compared the same V5 model with neural `via` overrides disabled versus enabled (`via` confidence threshold `0.95`). The recorded leaderboard scores changed from **65.28% to 70.39%**, with **1,148 of 12,000 output actions** changing. This is a configuration comparison, not proof that every individual neural correction was right.
 
@@ -161,7 +156,7 @@ All scores below are from the **`COURIER2` private-test round**, the only round 
 | Oct 10, 11:50 | V5 + five-seed "Ultra" solver (`#1201`) | 70.83% |
 | Oct 10, 12:00 | V5+V9 ensemble, goal threshold 0.70 + Ultra solver (`#1208`) | **71.17%** |
 
-**Reported final standing: 13th out of 25 teams.** The final ranking uses the remaining scored test scenes, which are not shown during the contest; the in-contest leaderboard scores above and the final placement should not be treated as the same metric. Submission identifiers and scores up to `#1182` are documented in the reports under [`docs/`](docs/). The scores and times of `#1201` and `#1208` come from leaderboard screenshots; the configuration behind each is taken from the development session's command log, as described in [Final submissions](#final-submissions-1201-and-1208).
+**Standing.** At the end of the contest the in-contest leaderboard, which uses about 30% of the scored scenes, placed the team 13th of 25 with 71.17%. The official qualifying ranking uses the remaining scenes and placed the team **6th of 25**; the team advanced to the final round. These are different metrics on different scenes, so the in-contest scores in the table above should not be read as the official ranking. This repository documents the qualifying round only. Submission identifiers and scores up to `#1182` are documented in the reports under [`docs/`](docs/). The scores and times of `#1201` and `#1208` come from leaderboard screenshots; the configuration behind each is taken from the development session's command log, as described in [Final submissions](#final-submissions-1201-and-1208).
 
 Two lessons from the submission history are worth highlighting:
 
@@ -207,8 +202,8 @@ The **original competition dataset is not bundled** in this repository. Some tes
 The commands below use **PowerShell** to match the project's development environment.
 
 ```powershell
-git clone https://github.com/AnDpTri/Top13-Phenikaa-AI-Hackathon-2026.git
-cd Top13-Phenikaa-AI-Hackathon-2026
+git clone https://github.com/AnDpTri/Top6-Phenikaa-AI-Hackathon-2026.git
+cd Top6-Phenikaa-AI-Hackathon-2026
 py -3.12 -m pip install -e ".[solver,cv]"
 $env:PYTHONPATH = "src"
 ```
@@ -220,7 +215,7 @@ The CV checkpoint and `candidate_strategy_trainval.joblib` are tracked in the so
 ```powershell
 New-Item -ItemType Directory -Force artifacts/nlp | Out-Null
 gh release download v1.0.0 `
-  --repo AnDpTri/Top13-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
   --pattern "neural_parser_v5_sf200_scratch_via095.pt" `
   --dir artifacts/nlp
 ```
@@ -261,11 +256,11 @@ Both use the Ultra solver artifact from the release. Download it and the V5+V9 N
 
 ```powershell
 gh release download v1.0.0 `
-  --repo AnDpTri/Top13-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
   --pattern "candidate_strategy_ultra.joblib" `
   --dir artifacts/solver
 gh release download v1.0.0 `
-  --repo AnDpTri/Top13-Phenikaa-AI-Hackathon-2026 `
+  --repo AnDpTri/Top6-Phenikaa-AI-Hackathon-2026 `
   --pattern "neural_parser_v5_v9_ensemble_g070_v095.pt" `
   --dir artifacts/nlp
 ```

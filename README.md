@@ -4,7 +4,7 @@
 
 **Team:** Devil May Cry (DMC)  
 **Challenge:** Phenikaa Campus Courier 2026 — private-test round (`COURIER2`, new dataset)  
-**Result:** Top 6 of 25 teams in the official qualifying ranking, which advanced the team to the final round. Peak macro accuracy on the in-contest leaderboard: **71.17%**.  
+**Result:** Qualified for the final round and finished **5th of 11 teams** on the [final leaderboard](https://aihackathon.phenikaa-uni.edu.vn/leaderboard/FINAL). Peak macro accuracy on the in-contest qualifying leaderboard: **71.17%**.  
 **Development window:** October 8–10, 2026 (~48 hours)
 
 > **Project context.** This repository documents a hackathon solution developed from an empty project under severe time constraints. One developer coordinated the architecture, experiments, integration, validation, and submissions, with AI coding agents assisting in implementation and research. The result is a working experimental pipeline, **not a production-certified robotics system**.
@@ -156,7 +156,7 @@ All scores below are from the **`COURIER2` private-test round**, the only round 
 | Oct 10, 11:50 | V5 + five-seed "Ultra" solver (`#1201`) | 70.83% |
 | Oct 10, 12:00 | V5+V9 ensemble, goal threshold 0.70 + Ultra solver (`#1208`) | **71.17%** |
 
-**Standing.** At the end of the contest the in-contest leaderboard, which uses about 30% of the scored scenes, placed the team 13th of 25 with 71.17%. The official qualifying ranking uses the remaining scenes and placed the team **6th of 25**; the team advanced to the final round. These are different metrics on different scenes, so the in-contest scores in the table above should not be read as the official ranking. This repository documents the qualifying round only. Submission identifiers and scores up to `#1182` are documented in the reports under [`docs/`](docs/). The scores and times of `#1201` and `#1208` come from leaderboard screenshots; the configuration behind each is taken from the development session's command log, as described in [Final submissions](#final-submissions-1201-and-1208).
+**Standing.** At the end of the qualifying contest the in-contest leaderboard, which uses about 30% of the scored scenes, placed the team 13th of 25 with 71.17%. The qualifying ranking is computed on the remaining scenes, and the team advanced to the final round. These are different metrics on different scenes, so the in-contest scores in the table above should not be read as the official ranking. This repository documents the qualifying round (Task `COURIER2`) only; the final-round code is not included. Submission identifiers and scores up to `#1182` are documented in the reports under [`docs/`](docs/). The scores and times of `#1201` and `#1208` come from leaderboard screenshots; the configuration behind each is taken from the development session's command log, as described in [Final submissions](#final-submissions-1201-and-1208).
 
 Two lessons from the submission history are worth highlighting:
 
